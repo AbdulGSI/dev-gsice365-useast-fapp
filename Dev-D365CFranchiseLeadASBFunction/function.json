@@ -1,0 +1,11 @@
+﻿{
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "queueName": "gsiasbtestpocqueue",
+      "connection": "dev-gsice365-useast-bus_RootManageSharedAccessKey_SERVICEBUS"
+    }
+  ]
+}

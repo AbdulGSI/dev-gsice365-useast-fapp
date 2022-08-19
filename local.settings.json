@@ -1,0 +1,30 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "gsi-test_Resource": "https://gsitst.crm.dynamics.com/",
+    "gsi-test_ClientId": "d933480d-cbbb-469b-a1ad-e4eb37dd77be",
+    "FUNCTIONS_EXTENSION_VERSION": "~3",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=ce365devsa1;AccountKey=7xoANetp375wMoEpIfpt2Wqh+ejlWdP+HOftmdOOBY6NDZ6u2rJofu5MqIhpsOxA7az3L+1Mbsj4mtBEskemMw==;EndpointSuffix=core.windows.net",
+    "WEBSITE_SITE_NAME": "dev-gsice365-useast-fapp",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "WEBSITE_AUTH_AUTO_AAD": "False",
+    "gsi-test_ClientSecret": "YQb4X~3S_TlJB1wv5JK0Ly1LCza--Rh7SX",
+    "WEBSITE_AUTH_ENABLED": "False",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=ce365devsa1;AccountKey=7xoANetp375wMoEpIfpt2Wqh+ejlWdP+HOftmdOOBY6NDZ6u2rJofu5MqIhpsOxA7az3L+1Mbsj4mtBEskemMw==;EndpointSuffix=core.windows.net",
+    "dev-gsice365-useast-bus_RootManageSharedAccessKey_SERVICEBUS": "Endpoint=sb://dev-gsice365-useast-bus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=rHHRxmOLgmVH8PAtX4m2tUcsprghFAWLYblWW2EHBho=",
+    "ScmType": "None",
+    "gsi-dev_ClientSecret": "YQb4X~3S_TlJB1wv5JK0Ly1LCza--Rh7SX",
+    "WEBSITE_CONTENTSHARE": "dev-gsice365-useast-fapp8e40",
+    "FUNCTIONS_RUNTIME_SCALE_MONITORING_ENABLED": "0",
+    "WEBSITE_AUTH_LOGOUT_PATH": "/.auth/logout",
+    "WEBSITE_SLOT_NAME": "Production",
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=04421ebf-b29d-49a0-b450-c22d21efe62c;IngestionEndpoint=https://eastus-1.in.applicationinsights.azure.com/",
+    "gsi-dev_WebApiUrl": "https://gsidev.api.crm.dynamics.com/api/data/v9.1/",
+    "gsi-dev_Resource": "https://gsidev.crm.dynamics.com",
+    "gsi-dev_ClientId": "d933480d-cbbb-469b-a1ad-e4eb37dd77be",
+    "REMOTEDEBUGGINGVERSION": "16.0.28729.10",
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "04421ebf-b29d-49a0-b450-c22d21efe62c",
+    "gsi-test_WebApiUrl": "https://gsitst.api.crm.dynamics.com/api/data/v9.1/",
+    "WEBSITE_RUN_FROM_PACKAGE": 1
+  }
+}

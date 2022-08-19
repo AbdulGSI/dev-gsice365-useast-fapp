@@ -1,0 +1,9 @@
+{
+  "frameworks": {
+    "net46":{
+      "dependencies": {
+        "Microsoft.IdentityModel.Clients.ActiveDirectory.dll": "5.2.8"        
+      }
+    }
+  }
+}
