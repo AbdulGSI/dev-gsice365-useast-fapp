@@ -18,9 +18,6 @@ public static void Run(string myQueueItem, ILogger log)
 {
     Guid leadId = Guid.Empty;
     Guid noteId = Guid.Empty;
-    //myQueueItem = myQueueItem.Replace(@"\", "");
-    //myQueueItem = System.Text.RegularExpressions.Regex.Unescape(myQueueItem);
-
     log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
     //deserialize input message to Account object     
     Lead lead = JsonConvert.DeserializeObject<Lead>(myQueueItem);
@@ -158,32 +155,41 @@ private static async Task<Guid> CreateLeadInCE(Lead lead, AccessDetails accessDe
         leadObj["gsi_emailvalidationstatus"] = emailValidationStatus;
     }
 
+    if (phoneType != null)
+    {
+        if (phoneType.ToLower() == "home")
+        {
+            // telephone2 - Home Phone
+            leadObj["telephone2"] = RemoveEscapeChars(lead.Phone);
+            if (phoneValidationStatus != null)
+            {
+                leadObj["gsi_homephonevalidationstatus"] = phoneValidationStatus;
+            }
+        }
+        else if (phoneType.ToLower() == "mobile")
+        {
+            // mobilephone - Mobile Phone
+            leadObj["mobilephone"] = RemoveEscapeChars(lead.Phone);
+            if (phoneValidationStatus != null)
+            {
+                leadObj["gsi_mobilephonevalidationstatus"] = phoneValidationStatus;
+            }
+        }
+        else if (phoneType.ToLower() == "business" || phoneType.ToLower() == "landline")
+        {
+            // telephone1 - BusinessPhone
+            leadObj["telephone1"] = RemoveEscapeChars(lead.Phone);
+            if (phoneValidationStatus != null)
+            {
+                leadObj["gsi_businessphonevalidationstatus"] = phoneValidationStatus;
+            }
+        }
+        else
+        {
+            // telephone1 - BusinessPhone
+            leadObj["telephone2"] = RemoveEscapeChars(lead.Phone);
+            leadObj["gsi_homephonevalidationstatus"] = 2;
 
-    if (phoneType.ToLower() == "home")
-    {
-        // telephone2 - Home Phone
-        leadObj["telephone2"] = RemoveEscapeChars(lead.Phone);
-        if (phoneValidationStatus != null)
-        {
-            leadObj["gsi_homephonevalidationstatus"] = phoneValidationStatus;
-        }
-    }
-    else if (phoneType.ToLower() == "mobile")
-    {
-        // mobilephone - Mobile Phone
-        leadObj["mobilephone"] = RemoveEscapeChars(lead.Phone);
-        if (phoneValidationStatus != null)
-        {
-            leadObj["gsi_mobilephonevalidationstatus"] = phoneValidationStatus;
-        }
-    }
-    else if (phoneType.ToLower() == "business" || phoneType.ToLower() == "landline")
-    {
-        // telephone1 - BusinessPhone
-        leadObj["telephone1"] = RemoveEscapeChars(lead.Phone);
-        if (phoneValidationStatus != null)
-        {
-            leadObj["gsi_businessphonevalidationstatus"] = phoneValidationStatus;
         }
     }
     else
@@ -191,9 +197,7 @@ private static async Task<Guid> CreateLeadInCE(Lead lead, AccessDetails accessDe
         // telephone1 - BusinessPhone
         leadObj["telephone2"] = RemoveEscapeChars(lead.Phone);
         leadObj["gsi_homephonevalidationstatus"] = 2;
-
     }
-
 
     leadObj["subject"] = "Franchise Lead " + "- " + RemoveEscapeChars(lead.LastName) + ", " + RemoveEscapeChars(lead.FirstName);
     leadObj["gsi_usersignupforemails"] = lead.UserEmailOptedIn;
